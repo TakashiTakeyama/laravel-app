@@ -15,27 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('hello', function() {
-    return view('sample');
-});
+// Route::get('hello', function() {
+//     return view('sample');
+// });
 
-Route::get('hello/{msg?}', function ($msg) {
-    $html = <<<EOF
-    <html>
-    <head>
-    <title>Hello</title>
-    <style>
-    body {font-size:16px; text-align:right; color:#eee;
-        margin: -40px 0px -50px 0px; }
-        </style>
-        </head>
-    <body>
-    <h1>Hello</h1>
-    <p>{$msg}</p>
-    <p>これはサンプルで作ったページです。</p>
-    </body>
-    </html>
-    EOF;
-    return $html;
+// Route::get('hello/{id?}/{pass?}', 'Hellocontroller@index');
 
-});
+// Route::get('hello/other', 'Hellocontroller@other');
+
+// Route::get('hello', 'Hellocontroller@index');
+
+// Route::get('hello', function() {
+    // return view('hello.index');
+// });
+
+Route::get('hello', 'Hellocontroller@index');
+Route::post('hello', 'Hellocontroller@post');
+
