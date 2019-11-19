@@ -14,3 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('hello', function() {
+//     return view('sample');
+// });
+
+// Route::get('hello/{id?}/{pass?}', 'Hellocontroller@index');
+
+// Route::get('hello/other', 'Hellocontroller@other');
+
+// Route::get('hello', 'Hellocontroller@index');
+
+// Route::get('hello', function() {
+    // return view('hello.index');
+// });
+
+Route::get('hello', 'Hellocontroller@index');
+Route::post('hello', 'Hellocontroller@post');
+
