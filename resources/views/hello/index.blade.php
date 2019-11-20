@@ -8,7 +8,10 @@
 
 @section('content')
   <p>ここが本文のコンテンツです。</p>
-  <p>必要なだけ記述できます。</p>
+  <p>Controller value<br>'message' = {{$}}
+  <ul>
+  @each('components.item', $data, 'item')
+  </ul>
 @endsection
 
 @section('footer')
