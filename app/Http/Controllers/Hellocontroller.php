@@ -71,6 +71,7 @@ class Hellocontroller extends Controller
 
     public function index(Request $request) {
         // return view('hello.index', ['message'=>'Hello']);
-        return view('hello.index', ['data'=>$request->data]);
+        // return view('hello.index', ['data'=>$request->data]);
+        return view('hello.index');
     }
 }
