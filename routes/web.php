@@ -30,7 +30,8 @@ Route::get('/', function () {
 // });
 
 // Route::get('hello', 'Hellocontroller@index');
-Route::get('hello', 'Hellocontroller@index')->middleware(HelloMiddleware::class);
-Route::post('hello', 'Hellocontroller@post');
+// Route::get('hello', 'Hellocontroller@index')->middleware('hello');
+// Route::post('hello', 'Hellocontroller@post');
 
-
+Route::get('hello', 'HelloController@index');
+Route::post('hello', 'HelloController@post');

@@ -55,9 +55,9 @@ class Hellocontroller extends Controller
     //     return view('hello.index', ['msg'=>'']);
     // }
 
-    public function post(Request $request) {
-        return view('hello.index', ['msg'=>$request->msg]);
-    }
+    // public function post(Request $request) {
+    //     return view('hello.index', ['msg'=>$request->msg]);
+    // }
 
     // public function index() {
     //     // $data = ['one', 'two', 'three', 'four', 'five'];
@@ -69,9 +69,17 @@ class Hellocontroller extends Controller
     //     return view('hello.index', ['data'=>$data]);
     // }
 
+    // public function index(Request $request) {
+    //     // return view('hello.index', ['message'=>'Hello']);
+    //     // return view('hello.index', ['data'=>$request->data]);
+    //     return view('hello.index');
+    // }
+
     public function index(Request $request) {
-        // return view('hello.index', ['message'=>'Hello']);
-        // return view('hello.index', ['data'=>$request->data]);
-        return view('hello.index');
+        return view('hello.index', ['msg'=>'フォームを入力：']);
+    }
+
+    public function post(HelloRequest $request) {
+        return view('hello.index', ['msg'=>'正しく入力されました！']);
     }
 }
