@@ -19,9 +19,18 @@ class HelloSeviceProvider extends ServiceProvider
         //         $view->with('view_message', 'composer message!');
         //     }
         // );
-        View::composer(
-            'hello.index', 'App\Http\Composers\HelloComposer'
-        );
+        // View::composer(
+        //     'hello.index', 'App\Http\Composers\HelloComposer'
+        // );
+
+        // $validator = $this->app['validator'];
+        // $validator->resolver(function($translator, $data, $rules, $message) {
+        //     return new HelloValidator($translator, $data, $rules, $message);
+        // });
+
+        validator::extend('hello', function($attribute, $value, $parameters, $validator) {
+            return $value % 2 == 0;
+        });
     }
     public function register()
     {

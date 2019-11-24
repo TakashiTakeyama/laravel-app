@@ -25,13 +25,21 @@ class HelloRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules() {
+        return [
+            'name' => 'required',
+            'mail' => 'email',
+            'age' => 'numeric|hello',
+        ];
+    }
+
+    public function messages()
     {
         return [
             'name.required' => '名前は必ず入力してください。',
             'mail.email' => 'メールアドレスが必要です。',
             'age.numeric' => '年齢を整数で記入してください。',
-            'age.between' => '年齢は0~150の間で記入してください。',
+            'age.hello' => 'Hello! 入力は偶数のみ受け付けます。',
             //
         ];
     }
