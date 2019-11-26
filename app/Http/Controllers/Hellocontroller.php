@@ -179,4 +179,16 @@ class Hellocontroller extends Controller
         }
         return view('hello.index', ['msg'=> $msg]);
     }
+
+    public function post(Request $request) {
+        $validate_rule = [
+            'msg' => 'required',
+        ];
+
+        $this->validate($request, $validate_rule);
+        $msg = $request->msg;
+        $response = new Response(view('hello.index', ['msg'=> '「' . $msg . '」をクッキーに保存しました。']));
+        $response->cookie('msg', $msg, 100);
+        return $response;
+    }
 }
