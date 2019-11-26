@@ -8,12 +8,13 @@
 
 @section('content')
 <table>
-  <tr><th>Name</th><th>Mail</th><th>Age</th></tr>
+  <tr><th>Name</th><th>Mail</th><th>Age</th><th>ID</th></tr>
   @foreach ($items as $item)
   <tr>
     <td>{{$item->name}}</td>
     <td>{{$item->mail}}</td>
     <td>{{$item->age}}</td>
+    <td>{{$item->id}}</td>
   </tr>
   @endforeach
 </table>
