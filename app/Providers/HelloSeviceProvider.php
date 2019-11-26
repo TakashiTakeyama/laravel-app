@@ -28,9 +28,9 @@ class HelloSeviceProvider extends ServiceProvider
         //     return new HelloValidator($translator, $data, $rules, $message);
         // });
 
-        validator::extend('hello', function($attribute, $value, $parameters, $validator) {
-            return $value % 2 == 0;
-        });
+        // validator::extend('hello', function($attribute, $value, $parameters, $validator) {
+        //     return $value % 2 == 0;
+        // });
     }
     public function register()
     {
