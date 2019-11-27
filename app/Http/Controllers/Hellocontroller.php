@@ -286,4 +286,8 @@ class Hellocontroller extends Controller
         ->whereRaw('age >= ? and age <= ?', [$min, $max])->get();
         return view('hello.show', ['items' => $items]);
     }
+
+    public function rest(Request $request) {
+        return view('hello.rest');
+    }
 }
