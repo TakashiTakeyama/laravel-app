@@ -55,5 +55,3 @@ Route::post('person/edit', 'PersonController@update');
 
 Route::get('person/del', 'PersonController@delete');
 Route::post('person/del', 'PersonController@remove');
-
-
