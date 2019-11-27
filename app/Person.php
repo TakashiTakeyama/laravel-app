@@ -40,4 +40,8 @@ class Person extends Model
         'mail' => 'email',
         'age' => 'integer|min:0|max:150'
     );
+
+    public function board() {
+        return $this->hasOne('App\Board');
+    }
 }
