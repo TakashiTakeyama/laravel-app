@@ -10,13 +10,25 @@
 @section('content')
 <table>
   <tr><th>Data</th></tr>
-  @foreach ($items as $item)
+  @foreach ($hasItems as $item)
   <tr>
     <td>{{$item->getData()}}</td>
-    <td>@if ($item->board != null)
-      {{$item->board->getDate()}}
-      @endif
+    <!-- <td>@if ($item->board != null) -->
+      <table width="100%">
+        @foreach ($item->boards as $obj)
+        <tr><td>{{$obj->getData()}}</td></tr>
+        @endforeach
+      <!-- @endif -->
     </td>
+  </tr>
+  @endforeach
+</table>
+<div style="margin:10px;"></div>
+<table>
+  <tr><th>Person</th></tr>
+  @foreach ($noItems as $item)
+  <tr>
+    <td>{{$item->getData()}}</td>
   </tr>
   @endforeach
 </table>

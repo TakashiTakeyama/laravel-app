@@ -15,8 +15,12 @@ class Board extends Model
         'message' => 'required'
     );
 
+    public function person() {
+        return $this->belongsTo('App\Person');
+    }
+
     public function getDate() {
-        return $this->id . ': ' . $this->title;
+        return $this->id . ': ' . $this->title . ' (' . $this->person->name . ')';
     }
     //
 }
