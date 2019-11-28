@@ -7,6 +7,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use App\Person;
 use Validator;
+use Illuminate\Support\Facades\Auth;
 
 class Hellocontroller extends Controller
 {
@@ -213,10 +214,16 @@ class Hellocontroller extends Controller
         // $items = DB::table('people')->orderBy('age', 'asc')->get();
         // return view('hello.index', ['items' => $items]);
 
+        // $sort = $request->sort;
+        // // $items = DB::table('people')->simplePaginate(3);
+        // $items = Person::orderBy($sort, 'asc')->paginate(4);
+        // $param = ['items' => $items, 'sort' => $sort];
+        // return view('hello.index', $param);
+
+        $user = Auth::user();
         $sort = $request->sort;
-        // $items = DB::table('people')->simplePaginate(3);
-        $items = Person::orderBy($sort, 'asc')->paginate(4);
-        $param = ['items' => $items, 'sort' => $sort];
+        $items = Person::orderBy($sort, 'asc')->simplePaginate(5);
+        $param = ['items' => $items, 'sort' => $sort, 'user' => $user];
         return view('hello.index', $param);
     }
 
