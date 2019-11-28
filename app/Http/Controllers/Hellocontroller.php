@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use App\Person;
 use Validator;
 
 class Hellocontroller extends Controller
@@ -212,22 +213,11 @@ class Hellocontroller extends Controller
         // $items = DB::table('people')->orderBy('age', 'asc')->get();
         // return view('hello.index', ['items' => $items]);
 
-        $items = DB::table('people')->simplePaginate(3);
-        return view('hello.index', ['items' => $items]);
-    }
-
-    public function add(Request $request) {
-        return view('hello.add');
-    }
-
-    public function create(Request $request) {
-        $param = [
-            'name' => $request->name,
-            'mail' => $request->mail,
-            'age'  => $request->age,
-        ];
-        DB::table('people')->insert($param);
-        return redirect('/hello');
+        $sort = $request->sort;
+        // $items = DB::table('people')->simplePaginate(3);
+        $items = Person::orderBy($sort, 'asc')->paginate(4);
+        $param = ['items' => $items, 'sort' => $sort];
+        return view('hello.index', $param);
     }
 
     public function edit(Request $request) {
