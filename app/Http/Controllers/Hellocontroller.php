@@ -209,7 +209,10 @@ class Hellocontroller extends Controller
         // $items = DB::table('people')->get();
         // return view('hello.index', ['items' => $items]);
 
-        $items = DB::table('people')->orderBy('age', 'asc')->get();
+        // $items = DB::table('people')->orderBy('age', 'asc')->get();
+        // return view('hello.index', ['items' => $items]);
+
+        $items = DB::table('people')->simplePaginate(3);
         return view('hello.index', ['items' => $items]);
     }
 
